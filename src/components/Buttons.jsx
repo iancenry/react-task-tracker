@@ -1,19 +1,21 @@
-import PropTypes from 'prop-types'
-const Buttons = ({color, text, onClick}) => {
+import {func} from 'prop-types'
+const Buttons = ({showAddButton, onshowAddTask}) => {
+
+  let buttonStyle={
+    backgroundColor : showAddButton? 'red': 'black'
+  }
     
   return (
-    <button onClick={onClick} className='btn' style={{backgroundColor:color}}>{text}</button>
+    <button onClick={onshowAddTask} className='btn' style={buttonStyle}>{showAddButton? 'Close' : 'Add'}</button>
   )
 };
 
 Buttons.defaultProps = {
-    color: 'green'
+  onshowAddTask: false
 };
 
 Buttons.propTypes ={
-    text: PropTypes.string,
-    color:PropTypes.string,
-    onClick:PropTypes.func.isRequired
+  onshowAddTask:func.isRequired
 }
 
 

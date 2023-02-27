@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, Navigate, useNavigate } from "react-router-dom";
-import Button from "./Buttons";
 
 const TaskDetails = () => {
   const [loading, setLoading] = useState(true);
   const [task, setTask] = useState({});
   const [error, setError] = useState(null);
 
-  //using params passed in the Link to
+  
   const params = useParams();
 
   const navigate = useNavigate();
@@ -27,7 +26,7 @@ const TaskDetails = () => {
     };
 
     fetchTask();
-  });
+  }, [params.id, navigate]);
 
   if (error) {
     return <Navigate to="/" />;
@@ -39,19 +38,11 @@ const TaskDetails = () => {
     <div>
       <h3>{task.text}</h3>
       <h3>{task.day}</h3>
-      <Button
-        onClick={() => {
-          navigate(-1); // instead of slash we can use -1 to go  to the previous page
-        }}
-        text="Go Back"
-      />
+      {/* instead of slash we can use -1 to go  to the previous page */}
+      <button className="btn" onClick={()=> navigate(-1)}>Go Back</button>
     </div>
   );
 };
 
 
 export default TaskDetails;
-{/**
-* The useParams allows us to get the id in the url
-*/}
-

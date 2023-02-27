@@ -1,38 +1,44 @@
 import {useState} from 'react'
 
-const AddTask = ({onAdd}) => {
-  const [text, setText] =  useState('')
-  const [day, setDay] =  useState('')
-  const [reminder, setReminder] =  useState(false)
+const AddTask = ({addTask}) => {
+  const [task, setTask] = useState({
+    text: "", 
+    day: "", 
+    reminder: false
+  })
+
+  const handleChange = (e)=>{
+    e.persist()
+    const {name, value, type, checked} = e.target
+    setTask(prevTask => ({...prevTask, [name]: type === 'checkbox'? checked : value}))
+  }
+
 
   const onSubmit = (e)=>{
-    e.preventDefault() // prevent submitting to a page
-    if(!text){
+    e.preventDefault()
+    if(!task.text){
         alert('Please add a task')
         return
     }
-    onAdd({text, day, reminder})
+    addTask(task)
     // clear the form
-    setText('')
-    setDay('')
-    setReminder(false)
-
+    setTask({text: "", day: "", reminder: false})
   }
 
 
   return (
     <form className="add-form" onSubmit={onSubmit}>
         <div className="form-control">
-            <label htmlFor="">Task</label>
-            <input type="text" placeholder="Add Task" value={text} onChange={(e)=>setText(e.target.value)} />
+            <label htmlFor="text">Task</label>
+            <input id='text' type="text" placeholder="Add Task" name='text' value={task.text} onChange={handleChange} />
         </div>
         <div className="form-control">
-            <label htmlFor="">Day & Time</label>
-            <input type="text" placeholder="Add Day & Time" value={day} onChange={(e)=>setDay(e.target.value)} />
+            <label htmlFor="day">Day & Time</label>
+            <input id='day' type="text" placeholder="Add Day & Time" name='day' value={task.day} onChange={handleChange} />
         </div>
         <div className="form-control form-control-check">
-            <label htmlFor="">Set Reminder</label>
-            <input type="checkbox" checked={reminder} value={reminder} onChange={(e)=>setReminder(e.currentTarget.checked)} />
+            <label htmlFor="reminder">Set Reminder</label>
+            <input id='reminder' type="checkbox" name="reminder" checked={task.reminder} onChange={handleChange} />
         </div>
         <input type="submit" value="Save Task" className="btn btn-block" />
 
