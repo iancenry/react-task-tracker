@@ -10,7 +10,7 @@
 
 **NB**
 1. Use of react router to render multiple views and also rendering multiple components in react router. 
-```jsx
+   ```jsx
                 {/*Rendering multiple views*/}
                 <Routes>
                   {/*Rendering multiple components on one route*/}
@@ -36,10 +36,10 @@
                   {/* param called id in url */}
                   <Route path="/task/:id" element={<TaskDetails />} />
                 </Routes>
-```
+   ```
 
 1. Use of different react-router-dom functionalities such as Router, Route, Routes, Link (used in place of anchor tags), useParams (allows us to get URL parameters), and useNavigate (similar to Navigate; used to change current location).
-        ```jsx
+```jsx
                 {/*get the URL params passed in the Link component*/}
                 const params = useParams();
 
@@ -48,7 +48,7 @@
                 navigate("/");
 
                 return <Navigate to="/" />
-        ```
+```
 
 1. Use of defaultProps to define a placeholder for a prop is it isn't provided.
         ```jsx
