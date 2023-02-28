@@ -1,6 +1,9 @@
 # Task Tracker
 - This is a task tracker built With react, the backend is using json server which provides a simple REST database to test and play around with the application.
 
+
+![1](https://user-images.githubusercontent.com/77986239/221990994-14e33d8b-b6dc-44c1-aa2a-918de60fce89.PNG)
+
 ## Quick Setup
 1. Fork then clone the project into local machine 🍴
 1. run 'npm install' in the root folder to install all the necessary packages 👩‍💻
