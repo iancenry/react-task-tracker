@@ -1,8 +1,12 @@
 # Task Tracker
 - This is a task tracker built With react, the backend is using json server which provides a simple REST database to test and play around with the application.
 
-## Setup
-install json-server, react-icons, react-router-dom, 
+## Quick Setup
+1. Fork then clone the project into local machine 🍴
+1. run 'npm install' in the root folder to install all the necessary packages 👩‍💻
+1. Happy coding 💻
+
+* Packages used: json-server, react-icons, react-router-dom.
 
 **NB**
 1. Use of react router to render multiple views and also rendering multiple components in react router. 
